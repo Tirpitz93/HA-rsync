@@ -64,3 +64,18 @@ The ip or host of the remote machine you want to connect to.
 ### `remote_port` (optional)
 
 The ssh port on the remote machine. If not set the default `22` is assumed.
+
+## Home Assistant sensors
+
+The add-on publishes sensor states through the Home Assistant API. They are created automatically the first time the add-on runs; no REST sensor, MQTT broker, or additional Home Assistant configuration is required.
+
+| Entity | Description |
+| --- | --- |
+| `sensor.rsync_status` | `running`, `idle` after success, or `error`; includes last run start and end timestamps. |
+| `sensor.rsync_bytes_transferred` | Bytes transferred during the current run. |
+| `sensor.rsync_transfer_rate_up` | Current upload rate in bytes per second. |
+| `sensor.rsync_transfer_rate_down` | Current download rate in bytes per second. |
+| `sensor.rsync_last_exit_code` | Exit code from the most recent run. |
+| `sensor.rsync_last_run_duration` | Duration of the most recent run in seconds. |
+
+Transfer metrics update while rsync is running. The add-on manifest grants access to the Home Assistant API; no credentials need to be added to the add-on options.

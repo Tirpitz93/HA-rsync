@@ -13,7 +13,7 @@ publish_sensor() {
   payload=$(jq -cn --arg state "$state" --argjson attributes "$attributes" \
     '{state: $state, attributes: $attributes}')
   if ! curl --silent --show-error --fail \
-    --header "Authorization: ******" \
+    --header "Authorization: Bearer $SUPERVISOR_TOKEN" \
     --header 'Content-Type: application/json' \
     --data "$payload" \
     "${HA_API_URL}/states/${entity_id}" >/dev/null; then
