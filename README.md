@@ -22,10 +22,10 @@ Each folder entry in the config can push *or* pull independently, with its own r
 Click the badge above, or go to **Settings → Add-ons → Add-on Store → ⋮ → Repositories** and paste:
 
 ```text
-https://github.com/Tirpitz93/HA-rsync#copilot/install-fork-ha-enable-update-urls
+https://github.com/Tirpitz93/HA-rsync#staging
 ```
 
-This URL tracks the isolated fork-installation branch, `copilot/install-fork-ha-enable-update-urls`, rather than the upstream repository.
+This URL tracks the isolated fork-installation branch, `staging`, rather than the upstream repository.
 Home Assistant uses the repository URL you add to fetch updates; the URLs in the metadata are project links.
 If you merge these changes into your default branch, you can instead add `https://github.com/Tirpitz93/HA-rsync`.
 
@@ -137,6 +137,6 @@ Released under the [Apache License 2.0](LICENCE).
 Forked from the [rsync add-on by Markus Poeschl](https://github.com/Poeschl-HomeAssistant-Addons/rsync) (Apache 2.0). Changes include security hardening, Alpine upgrade, and updated documentation. See [NOTICE](NOTICE) for the full attribution.
 
 [ha-badge]: https://img.shields.io/badge/Add%20to-Home%20Assistant-41BDF5?logo=home-assistant&style=flat-square
-[ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FTirpitz93%2FHA-rsync%23copilot%2Finstall-fork-ha-enable-update-urls
+[ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FTirpitz93%2FHA-rsync%23staging
 [license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square
 [license-url]: LICENCE
