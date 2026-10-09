@@ -1,8 +1,8 @@
 name: rsync
-version: dev
+version: "0.1.0"
 slug: rsync
 description: Sync folders to a remote machine via ssh and rsync.
-url: https://github.com/braveness23/rsync
+url: https://github.com/Tirpitz93/HA-rsync
 arch:
   - armhf
   - armv7

@@ -22,8 +22,12 @@ Each folder entry in the config can push *or* pull independently, with its own r
 Click the badge above, or go to **Settings → Add-ons → Add-on Store → ⋮ → Repositories** and paste:
 
 ```text
-https://github.com/braveness23/rsync
+https://github.com/Tirpitz93/HA-rsync#copilot/install-fork-ha-enable-update-urls
 ```
+
+This URL tracks the isolated fork-installation branch, `copilot/install-fork-ha-enable-update-urls`, rather than the upstream repository.
+Home Assistant uses the repository URL you add to fetch updates; the URLs in the metadata are project links.
+If you merge these changes into your default branch, you can instead add `https://github.com/Tirpitz93/HA-rsync`.
 
 ### 2. Install and configure
 
@@ -38,6 +42,16 @@ ssh-copy-id -i /path/to/id_rsa.pub myuser@192.168.1.100
 ```
 
 Or paste the contents of `id_rsa.pub` into `~/.ssh/authorized_keys` on the remote. Once that's done, start the add-on and check the logs.
+
+## Testing and updating this fork
+
+- Keep fork-installation changes on `copilot/install-fork-ha-enable-update-urls`; merge or rebase your feature changes onto it to test them in HA.
+- For an upstream PR, use a feature branch based on upstream without the fork-installation commit. Cherry-pick only the feature commits, not the fork metadata changes.
+- The add-on has no prebuilt `image` configured, so Home Assistant builds it from this repository's Dockerfile when installing or updating.
+- For each test update, change `version` in `rsync/config.yaml` to a new version (starting from `0.1.0`), and push your changes to the branch HA tracks.
+- In **Settings → Add-ons → Add-on Store → ⋮**, choose **Check for updates**, then open the installed fork add-on and select **Update**. Pushing code without changing the version does not offer an add-on update.
+- An upstream installation is separate from this fork. Copy its configuration to the fork and stop the upstream add-on before testing.
+- Repository installations use a repository-specific add-on ID, not `local_rsync`. Use the fork's ID (visible in its add-on page URL) in your automations.
 
 ## Configuration
 
@@ -123,6 +137,6 @@ Released under the [Apache License 2.0](LICENCE).
 Forked from the [rsync add-on by Markus Poeschl](https://github.com/Poeschl-HomeAssistant-Addons/rsync) (Apache 2.0). Changes include security hardening, Alpine upgrade, and updated documentation. See [NOTICE](NOTICE) for the full attribution.
 
 [ha-badge]: https://img.shields.io/badge/Add%20to-Home%20Assistant-41BDF5?logo=home-assistant&style=flat-square
-[ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fbraveness23%2Frsync
+[ha-url]: https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2FTirpitz93%2FHA-rsync%23copilot%2Finstall-fork-ha-enable-update-urls
 [license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square
 [license-url]: LICENCE
